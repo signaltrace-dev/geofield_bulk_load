@@ -14,7 +14,7 @@ function geofield_bulk_load_form_alter(&$form, &$form_state, $form_id){
       // Get fields only
       if(substr($key, 0, strlen('field_')) === 'field_'){
         $field = $element;
-        if($element['#type'] === 'container'){
+        if(!empty($element['#type']) && $element['#type'] === 'container'){
           $field = $element[LANGUAGE_NONE];
         }
         // Geofields are structured a little differently - get the correct field element
